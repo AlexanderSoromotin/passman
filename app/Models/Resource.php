@@ -35,12 +35,19 @@ class Resource extends Model
 //    // Аксессор для расшифровки атрибута 'password'
     public function getPasswordAttribute($value)
     {
+        if ($value == '' or $value == null) {
+            return $value;
+        }
         return Crypt::decrypt($value);
     }
 //
     // Мутатор для шифрования атрибута 'password'
     public function setPasswordAttribute($value)
     {
+        if ($value == '' or $value == null) {
+            $this->attributes['password'] = $value;
+            return;
+        }
         $this->attributes['password'] = Crypt::encrypt($value);
     }
 
