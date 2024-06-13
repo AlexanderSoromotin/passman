@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: roboto-example, sans-serif;*/
+    font-family: 'Rubik', roboto-example, sans-serif;
+}
+
+button:focus {
+    /*box-shadow: 0 0 0 0.2rem rgba(181, 29, 34, .3) !important;*/
+    border-color: rgba(181, 29, 34, .1) !important;
+    /*border: unset !important;*/
+}
+input:focus {
+    /*box-shadow: 0 0 0 0.2rem rgba(181, 29, 34, .3) !important;*/
+    /*border-color: rgba(181, 29, 34, .1) !important;*/
+    border: unset !important;
+}
+.input {
+    position: relative;
+}
+.input .eye {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input .eye img {
+    position: absolute;
+    opacity: .5;
+}
+.input .eye img.eye-icon {
+    display: none;
+}
+.input .eye.show-password img.eye-off-icon {
+    display: none;
+}
+.input .eye.show-password img.eye-icon {
+    display: block;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 0 !important;
+}
+
+.svg {
+    filter: invert(1);
+}
+
+main {
+    padding: 15px 15px 150px;
+}
+
+.select2-selection {
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    border-radius: 6px !important;
+}
+.select2-selection__rendered {
+    padding-left: 10px !important;
+}
+.select2-selection__arrow {
+    height: 40px !important;
+    top: 0px !important;
+    right: 0px !important;
+    width: 40px !important;
+}
+
+.loading {
+    transition: .2s;
+    opacity: .3;
+}
+.loading::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/icons/loader.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40px;
+    animation: rotate 1s forwards infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.plug {
+    width: 100%;
+    padding: 10px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    color: rgba(0, 0, 0, .4);
+}
+
+.btn-primary {
+    background-color: #b51d22 !important;
+    border: none !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+}
+.btn:not(.btn[disabled]) {
+    cursor: pointer;
+    transition: .1s;
+}
+.btn:not(.btn[disabled]):hover {
+    opacity: .9;
+}
+/*.btn-primary[disabled] {*/
+/*    opacity: .3;*/
+/*    background-color: #5a6268 !important;*/
+/*}*/
+.btn-secondary {
+    border: none !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+}
+.modal-content {
+    border-radius: 13px !important;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.input input {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    height: 40px;
+    padding: 0 15px;
+}
+.input select {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    height: 40px;
+    padding: 0 15px;
+}
+
+.alert {
+    position: fixed;
+    top: -100%;
+    left: 10px;
+    width: calc(100% - 20px);
+    display: none;
+    opacity: 0;
+}
+.alert.show {
+    animation: showAlert .3s forwards;
+}
+.alert.hidden {
+    animation: hideAlert .3s forwards;
+}
+
+@keyframes showAlert {
+    from {
+        display: none;
+        top: -100%;
+        opacity: 0;
+    }
+    to {
+        display: block;
+        top: 10px;
+        opacity: 1;
+    }
+}
+
+.dash {
+    position: relative;
+}
+.dash canvas {
+    opacity: .3;
+}
+.dash::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "Недостоверные данные";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: rgba(0, 0, 0, .7);
+}
+
+.select2-container {
+    max-width: 100%;
+}
+
+.title-with-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 40px 0 15px;
+}
+.title-with-button button {
+    height: 35px;
+    padding: 0 10px !important;
+    margin-left: 15px;
+}
+
+@media (max-width: 970px) {
+    header .tabs {
+        display: none;
+    }
+}
+
+@media (min-width: 970px) {
+    main {
+        max-width: 700px;
+        position: relative;
+        top: 130px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    footer {
+        display: none;
+    }
+
+    .modal-dialog {
+        top: 150px;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+}
+
